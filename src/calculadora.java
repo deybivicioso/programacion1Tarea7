@@ -36,6 +36,7 @@ class panelPrincipal extends JPanel implements ActionListener {
     JInternalFrame calculadora3 = new JInternalFrame();// multiplicar dos numeros
     JInternalFrame calculadora4 = new JInternalFrame();// multiplicar tres nuemros
     JInternalFrame calculadora5 = new JInternalFrame();// restar dos numeros
+    JInternalFrame calculadora6 = new JInternalFrame();// resta tres numeros
     // opciones principales del menu
     JMenuBar barra = new JMenuBar();// soperte de la barra de menu
     JMenu opcion1 = new JMenu("calcular>suma");// primera opcion del menu
@@ -61,8 +62,11 @@ class panelPrincipal extends JPanel implements ActionListener {
     JLabel valor3 = new JLabel("valor3");
     JSpinner valor3_1 = new JSpinner();
     JButton resultado1 = new JButton("sumar");
+    JButton resultado1_1 = new JButton("sumar");// boton para sumar tres valores
     JButton resultado2 = new JButton("multiplicar");
+    JButton resultado2_1 = new JButton("multiplicar");// boton para multiplicar tres valores
     JButton resultado3 = new JButton("restar");
+    JButton resultado3_1 = new JButton("restar");// boton para restar tres valores
     JTextField prueba = new JTextField(); // se peude borrar mas adelante
     // instancia del jpanel
     JPanel lamina1 = new JPanel();
@@ -134,7 +138,8 @@ class panelPrincipal extends JPanel implements ActionListener {
             valor3_1.setBounds(50, 120, 100, 20);
             calculadora2.add(valor3_1);
             resultado1.setBounds(100, 175, 100, 20);
-            calculadora2.add(resultado1);
+            resultado1_1.setBounds(100, 175, 100, 20);
+            calculadora2.add(resultado1_1);
             prueba.setBounds(10, 200, 100, 20); // borrar tras terminar
             calculadora2.add(prueba);// borrar al terminar
             base.removeAll();
@@ -199,7 +204,8 @@ class panelPrincipal extends JPanel implements ActionListener {
             valor3_1.setBounds(50, 120, 100, 20);
             calculadora4.add(valor3_1);
             resultado2.setBounds(100, 175, 100, 20);
-            calculadora4.add(resultado2);
+            resultado2_1.setBounds(100, 175, 100, 20);
+            calculadora4.add(resultado2_1);
             prueba.setBounds(10, 200, 100, 20); // borrar tras terminar
             calculadora4.add(prueba);// borrar al terminar
             base.removeAll();
@@ -207,7 +213,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             base.revalidate();
             base.repaint();
         }
-        if (itemSelect == item3) {// quinta calculadora, restar tres numeros
+        if (itemSelect == item3) {// quinta calculadora, restar dos numeros
             // creacion de la calculadora
             calculadora5.setBounds(0, 0, 695, 425);
             calculadora5.setTitle("Calculadora");
@@ -227,13 +233,48 @@ class panelPrincipal extends JPanel implements ActionListener {
             valor2.setBounds(10, 80, 50, 20);
             calculadora5.add(valor2);
             valor2_1.setBounds(50, 80, 100, 20);
-            calculadora5.add(valor2_1);            
+            calculadora5.add(valor2_1);
             resultado3.setBounds(100, 175, 100, 20);
             calculadora5.add(resultado3);
             prueba.setBounds(10, 200, 100, 20); // borrar tras terminar
             calculadora5.add(prueba);// borrar al terminar
             base.removeAll();
             base.add(calculadora5);
+            base.revalidate();
+            base.repaint();
+        }
+        if (itemSelect == item3_1) {// sexta calculaora resta 3 valores
+            // creacion de la calculadora
+            calculadora6.setBounds(0, 0, 695, 425);
+            calculadora6.setTitle("Calculadora");
+            calculadora6.setVisible(true);
+            calculadora6.setResizable(true);
+            calculadora6.setMaximizable(false);
+            calculadora6.setClosable(true);
+            calculadora4.setIconifiable(true);
+            calculadora6.setLayout(null);
+            // creacccion de los componentes de la calculadora
+            instruciones.setBounds(10, 10, 280, 20);
+            calculadora6.add(instruciones);
+            valor1.setBounds(10, 50, 50, 20);
+            calculadora6.add(valor1);
+            valor1_1.setBounds(50, 50, 100, 20);
+            calculadora6.add(valor1_1);
+            valor2.setBounds(10, 80, 50, 20);
+            calculadora6.add(valor2);
+            valor2_1.setBounds(50, 80, 100, 20);
+            calculadora6.add(valor2_1);
+            valor3.setBounds(10, 120, 50, 20);
+            calculadora6.add(valor3);
+            valor3_1.setBounds(50, 120, 100, 20);
+            calculadora6.add(valor3_1);
+            resultado2.setBounds(100, 175, 100, 20);
+            resultado3_1.setBounds(100, 175, 100, 20);
+            calculadora6.add(resultado3_1);
+            prueba.setBounds(10, 200, 100, 20); // borrar tras terminar
+            calculadora6.add(prueba);// borrar al terminar
+            base.removeAll();
+            base.add(calculadora6);
             base.revalidate();
             base.repaint();
         }
@@ -256,7 +297,7 @@ class panelPrincipal extends JPanel implements ActionListener {
         opcion2.add(item2_1);
         item2_1.addActionListener(this);
         opcion3.add(item3);
-       item3.addActionListener(this);
+        item3.addActionListener(this);
         opcion3.add(item3_1);
         item3_1.addActionListener(this);
         opcion4.add(item4);
