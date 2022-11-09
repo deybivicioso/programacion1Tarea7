@@ -19,7 +19,6 @@ import javax.swing.JTextField;
 
 public class calculadora extends JFrame {
     panelPrincipal as = new panelPrincipal();
-
     public calculadora() {
         setVisible(true);
         setTitle("calculadora");
@@ -60,7 +59,7 @@ class panelPrincipal extends JPanel implements ActionListener {
     JLabel label1 = new JLabel("valor1");
     JLabel label2 = new JLabel("valor2");
     JLabel label3 = new JLabel("valor3");
-    JLabel result=new JLabel("Resultado");
+    JLabel result = new JLabel("Resultado");
     JSpinner valor1 = new JSpinner();
     JSpinner valor2 = new JSpinner();
     JSpinner valor3 = new JSpinner();
@@ -74,7 +73,7 @@ class panelPrincipal extends JPanel implements ActionListener {
      * estas instancias JtextField son las que
      * nos ayudan a almacenar los resultados en la tabla
      */
-    JTextField prueba1 = new JTextField();    
+    JTextField prueba1 = new JTextField();
     JTextField prueba2 = new JTextField();
     JTextField prueba3 = new JTextField();
     JTextField prueba4 = new JTextField();
@@ -121,7 +120,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora.add(resultado1);
             result.setBounds(10, 115, 60, 20);
             calculadora.add(result);
-            prueba1.setBounds(80, 115, 100, 20);            
+            prueba1.setBounds(80, 115, 100, 20);
             calculadora.add(prueba1);
             base.removeAll();
             base.add(calculadora);
@@ -160,7 +159,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora2.add(resultado1_1);
             result.setBounds(10, 155, 60, 20);
             calculadora2.add(result);
-            prueba2.setBounds(80, 155, 100, 20);            
+            prueba2.setBounds(80, 155, 100, 20);
             calculadora2.add(prueba2);
             base.removeAll();
             base.add(calculadora2);
@@ -194,7 +193,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora3.add(resultado2);
             result.setBounds(10, 115, 60, 20);
             calculadora3.add(result);
-            prueba3.setBounds(80, 115, 100, 20);            
+            prueba3.setBounds(80, 115, 100, 20);
             calculadora3.add(prueba3);
             base.removeAll();
             base.add(calculadora3);
@@ -231,7 +230,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora4.add(resultado2_1);
             result.setBounds(10, 155, 60, 20);
             calculadora4.add(result);
-            prueba4.setBounds(80, 155, 100, 20); 
+            prueba4.setBounds(80, 155, 100, 20);
             calculadora4.add(prueba4);
             base.removeAll();
             base.add(calculadora4);
@@ -264,7 +263,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora5.add(resultado3);
             result.setBounds(10, 115, 60, 20);
             calculadora5.add(result);
-            prueba5.setBounds(80, 115, 100, 20); 
+            prueba5.setBounds(80, 115, 100, 20);
             calculadora5.add(prueba5);
             base.removeAll();
             base.add(calculadora5);
@@ -346,7 +345,8 @@ class panelPrincipal extends JPanel implements ActionListener {
             String[] columnas = { "suma 2 N", "suma 3", "multiplicacion 2", "multiplicacion 3",
                     "resta 2", "resta 3" };
             Object[][] filas = {
-                    { prueba1.getText(),prueba2.getText(),prueba3.getText(),prueba4.getText(),prueba5.getText(),prueba6.getText() }                    
+                    { prueba1.getText(), prueba2.getText(), prueba3.getText(), prueba4.getText(), prueba5.getText(),
+                            prueba6.getText() }
             };
             registro = new JTable(filas, columnas);
             JScrollPane sp = new JScrollPane(registro);
@@ -356,9 +356,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             base.add(sp);
             base.revalidate();
             base.repaint();
-
         }
-
     }
 
     public void menu() {
