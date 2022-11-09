@@ -12,7 +12,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 public class calculadora extends JFrame {
@@ -58,16 +60,23 @@ class panelPrincipal extends JPanel implements ActionListener {
     JLabel label1 = new JLabel("valor1");
     JLabel label2 = new JLabel("valor2");
     JLabel label3 = new JLabel("valor3");
-    JSpinner valor1 = new JSpinner();    
-    JSpinner valor2 = new JSpinner();    
+    JSpinner valor1 = new JSpinner();
+    JSpinner valor2 = new JSpinner();
     JSpinner valor3 = new JSpinner();
-    JButton resultado1 = new JButton("sumar");    
+    JButton resultado1 = new JButton("sumar");
     JButton resultado1_1 = new JButton("sumar");// boton para sumar tres valores
     JButton resultado2 = new JButton("multiplicar");
     JButton resultado2_1 = new JButton("multiplicar");// boton para multiplicar tres valores
     JButton resultado3 = new JButton("restar");
     JButton resultado3_1 = new JButton("restar");// boton para restar tres valores
     JTextField prueba1 = new JTextField(); // se peude borrar mas adelante
+    JTextField prueba2 = new JTextField();
+    JTextField prueba3 = new JTextField();
+    JTextField prueba4 = new JTextField();
+    JTextField prueba5 = new JTextField();
+    JTextField prueba6 = new JTextField();
+    // instancia de la tabla
+    JTable registro = new JTable();
     // instancia del jpanel
     JPanel lamina1 = new JPanel();
 
@@ -205,7 +214,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             label3.setBounds(10, 120, 50, 20);
             calculadora4.add(label3);
             valor3.setBounds(50, 120, 100, 20);
-            calculadora4.add(valor3);           
+            calculadora4.add(valor3);
             resultado2_1.setBounds(100, 175, 100, 20);
             resultado2_1.addActionListener(this);
             calculadora4.add(resultado2_1);
@@ -271,7 +280,7 @@ class panelPrincipal extends JPanel implements ActionListener {
             label3.setBounds(10, 120, 50, 20);
             calculadora6.add(label3);
             valor3.setBounds(50, 120, 100, 20);
-            calculadora6.add(valor3);            
+            calculadora6.add(valor3);
             resultado3_1.setBounds(100, 175, 100, 20);
             resultado3_1.addActionListener(this);
             calculadora6.add(resultado3_1);
@@ -282,39 +291,56 @@ class panelPrincipal extends JPanel implements ActionListener {
             base.revalidate();
             base.repaint();
         }
-        Object operacion=e.getSource();
-        if(operacion==resultado1){
-            int suma1=(int)valor1.getValue();
-            suma1+=(int)valor2.getValue();
-            prueba1.setText(""+ suma1);                  
+        Object operacion = e.getSource();
+        if (operacion == resultado1) {
+            int suma1 = (int) valor1.getValue();
+            suma1 += (int) valor2.getValue();
+            prueba1.setText("" + suma1);
         }
-        if (operacion==resultado1_1){
-            int suma2=(int)valor1.getValue();
-            suma2+=(int)valor2.getValue();
-            suma2+=(int)valor3.getValue();
-            prueba1.setText(""+suma2);
+        if (operacion == resultado1_1) {
+            int suma2 = (int) valor1.getValue();
+            suma2 += (int) valor2.getValue();
+            suma2 += (int) valor3.getValue();
+            prueba1.setText("" + suma2);
         }
-        if(operacion==resultado2){
-            int suma3=(int)valor1.getValue();
-            suma3*=(int)valor2.getValue();
-            prueba1.setText(""+ suma3);                  
+        if (operacion == resultado2) {
+            int suma3 = (int) valor1.getValue();
+            suma3 *= (int) valor2.getValue();
+            prueba1.setText("" + suma3);
         }
-        if (operacion==resultado2_1){
-            int suma4=(int)valor1.getValue();
-            suma4*=(int)valor2.getValue();
-            suma4*=(int)valor3.getValue();
-            prueba1.setText(""+suma4);
+        if (operacion == resultado2_1) {
+            int suma4 = (int) valor1.getValue();
+            suma4 *= (int) valor2.getValue();
+            suma4 *= (int) valor3.getValue();
+            prueba1.setText("" + suma4);
         }
-        if(operacion==resultado3){
-            int suma5=(int)valor1.getValue();
-            suma5-=(int)valor2.getValue();
-            prueba1.setText(""+ suma5);                  
+        if (operacion == resultado3) {
+            int suma5 = (int) valor1.getValue();
+            suma5 -= (int) valor2.getValue();
+            prueba1.setText("" + suma5);
         }
-        if (operacion==resultado3_1){
-            int suma6=(int)valor1.getValue();
-            suma6-=(int)valor2.getValue();
-            suma6-=(int)valor3.getValue();
-            prueba1.setText(""+suma6);
+        if (operacion == resultado3_1) {
+            int suma6 = (int) valor1.getValue();
+            suma6 -= (int) valor2.getValue();
+            suma6 -= (int) valor3.getValue();
+            prueba1.setText("" + suma6);
+        }
+        if (itemSelect == item4) {
+            String[] columnas = { "suma 2 N","suma 3","multiplicacion 2","multiplicacion 3",
+        "resta 2", "resta 3" };
+            Object[][] filas = {
+                    { prueba1.getText(), "suma 3 N","resta 2N","","",""},
+                    {"EJEMPLO1","EJEMPLO2","EJEMPLO3","","",""}
+            };
+            registro = new JTable(filas, columnas);
+            JScrollPane sp=new JScrollPane(registro);
+            sp.setVisible(true);
+            sp.setBounds(0, 10, 695, 415);           
+            base.removeAll();
+            base.add(sp);
+            base.revalidate();
+            base.repaint();
+
         }
 
     }
@@ -339,6 +365,7 @@ class panelPrincipal extends JPanel implements ActionListener {
         opcion3.add(item3_1);
         item3_1.addActionListener(this);
         opcion4.add(item4);
+        item4.addActionListener(this);
     }
 
     public void descktopP() {
