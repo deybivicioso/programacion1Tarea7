@@ -60,6 +60,7 @@ class panelPrincipal extends JPanel implements ActionListener {
     JLabel label1 = new JLabel("valor1");
     JLabel label2 = new JLabel("valor2");
     JLabel label3 = new JLabel("valor3");
+    JLabel result=new JLabel("Resultado");
     JSpinner valor1 = new JSpinner();
     JSpinner valor2 = new JSpinner();
     JSpinner valor3 = new JSpinner();
@@ -69,7 +70,11 @@ class panelPrincipal extends JPanel implements ActionListener {
     JButton resultado2_1 = new JButton("multiplicar");// boton para multiplicar tres valores
     JButton resultado3 = new JButton("restar");
     JButton resultado3_1 = new JButton("restar");// boton para restar tres valores
-    JTextField prueba1 = new JTextField(); // se peude borrar mas adelante
+    /*
+     * estas instancias JtextField son las que
+     * nos ayudan a almacenar los resultados en la tabla
+     */
+    JTextField prueba1 = new JTextField();    
     JTextField prueba2 = new JTextField();
     JTextField prueba3 = new JTextField();
     JTextField prueba4 = new JTextField();
@@ -114,8 +119,10 @@ class panelPrincipal extends JPanel implements ActionListener {
             resultado1.setBounds(100, 175, 100, 20);
             resultado1.addActionListener(this);
             calculadora.add(resultado1);
-            prueba1.setBounds(10, 200, 100, 20); // borrar tras terminar
-            calculadora.add(prueba1);// borrar al terminar
+            result.setBounds(10, 115, 60, 20);
+            calculadora.add(result);
+            prueba1.setBounds(80, 115, 100, 20);            
+            calculadora.add(prueba1);
             base.removeAll();
             base.add(calculadora);
             base.revalidate();
@@ -148,11 +155,13 @@ class panelPrincipal extends JPanel implements ActionListener {
             valor3.setBounds(50, 120, 100, 20);
             calculadora2.add(valor3);
             resultado1.setBounds(100, 175, 100, 20);
-            resultado1_1.setBounds(100, 175, 100, 20);
+            resultado1_1.setBounds(100, 195, 100, 20);
             resultado1_1.addActionListener(this);
             calculadora2.add(resultado1_1);
-            prueba1.setBounds(10, 200, 100, 20); // borrar tras terminar
-            calculadora2.add(prueba1);// borrar al terminar
+            result.setBounds(10, 155, 60, 20);
+            calculadora2.add(result);
+            prueba2.setBounds(80, 155, 100, 20);            
+            calculadora2.add(prueba2);
             base.removeAll();
             base.add(calculadora2);
             base.revalidate();
@@ -180,11 +189,13 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora3.add(label2);
             valor2.setBounds(50, 80, 100, 20);
             calculadora3.add(valor2);
-            resultado2.setBounds(100, 175, 100, 20);
+            resultado2.setBounds(100, 195, 100, 20);
             resultado2.addActionListener(this);
             calculadora3.add(resultado2);
-            prueba1.setBounds(10, 200, 100, 20); // borrar tras terminar
-            calculadora3.add(prueba1);// borrar al terminar
+            result.setBounds(10, 115, 60, 20);
+            calculadora3.add(result);
+            prueba3.setBounds(80, 115, 100, 20);            
+            calculadora3.add(prueba3);
             base.removeAll();
             base.add(calculadora3);
             base.revalidate();
@@ -215,11 +226,13 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora4.add(label3);
             valor3.setBounds(50, 120, 100, 20);
             calculadora4.add(valor3);
-            resultado2_1.setBounds(100, 175, 100, 20);
+            resultado2_1.setBounds(100, 195, 100, 20);
             resultado2_1.addActionListener(this);
             calculadora4.add(resultado2_1);
-            prueba1.setBounds(10, 200, 100, 20); // borrar tras terminar
-            calculadora4.add(prueba1);// borrar al terminar
+            result.setBounds(10, 155, 60, 20);
+            calculadora4.add(result);
+            prueba4.setBounds(80, 155, 100, 20); 
+            calculadora4.add(prueba4);
             base.removeAll();
             base.add(calculadora4);
             base.revalidate();
@@ -246,11 +259,13 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora5.add(label2);
             valor2.setBounds(50, 80, 100, 20);
             calculadora5.add(valor2);
-            resultado3.setBounds(100, 175, 100, 20);
+            resultado3.setBounds(100, 195, 100, 20);
             resultado3.addActionListener(this);
             calculadora5.add(resultado3);
-            prueba1.setBounds(10, 200, 100, 20); // borrar tras terminar
-            calculadora5.add(prueba1);// borrar al terminar
+            result.setBounds(10, 115, 60, 20);
+            calculadora5.add(result);
+            prueba5.setBounds(80, 115, 100, 20); 
+            calculadora5.add(prueba5);
             base.removeAll();
             base.add(calculadora5);
             base.revalidate();
@@ -281,11 +296,13 @@ class panelPrincipal extends JPanel implements ActionListener {
             calculadora6.add(label3);
             valor3.setBounds(50, 120, 100, 20);
             calculadora6.add(valor3);
-            resultado3_1.setBounds(100, 175, 100, 20);
+            resultado3_1.setBounds(100, 195, 100, 20);
             resultado3_1.addActionListener(this);
             calculadora6.add(resultado3_1);
-            prueba1.setBounds(10, 200, 100, 20); // borrar tras terminar
-            calculadora6.add(prueba1);// borrar al terminar
+            result.setBounds(10, 155, 100, 20);
+            calculadora6.add(result);
+            prueba6.setBounds(80, 155, 100, 20);
+            calculadora6.add(prueba6);
             base.removeAll();
             base.add(calculadora6);
             base.revalidate();
@@ -301,41 +318,40 @@ class panelPrincipal extends JPanel implements ActionListener {
             int suma2 = (int) valor1.getValue();
             suma2 += (int) valor2.getValue();
             suma2 += (int) valor3.getValue();
-            prueba1.setText("" + suma2);
+            prueba2.setText("" + suma2);
         }
         if (operacion == resultado2) {
             int suma3 = (int) valor1.getValue();
             suma3 *= (int) valor2.getValue();
-            prueba1.setText("" + suma3);
+            prueba3.setText("" + suma3);
         }
         if (operacion == resultado2_1) {
             int suma4 = (int) valor1.getValue();
             suma4 *= (int) valor2.getValue();
             suma4 *= (int) valor3.getValue();
-            prueba1.setText("" + suma4);
+            prueba4.setText("" + suma4);
         }
         if (operacion == resultado3) {
             int suma5 = (int) valor1.getValue();
             suma5 -= (int) valor2.getValue();
-            prueba1.setText("" + suma5);
+            prueba5.setText("" + suma5);
         }
         if (operacion == resultado3_1) {
             int suma6 = (int) valor1.getValue();
             suma6 -= (int) valor2.getValue();
             suma6 -= (int) valor3.getValue();
-            prueba1.setText("" + suma6);
+            prueba6.setText("" + suma6);
         }
         if (itemSelect == item4) {
-            String[] columnas = { "suma 2 N","suma 3","multiplicacion 2","multiplicacion 3",
-        "resta 2", "resta 3" };
+            String[] columnas = { "suma 2 N", "suma 3", "multiplicacion 2", "multiplicacion 3",
+                    "resta 2", "resta 3" };
             Object[][] filas = {
-                    { prueba1.getText(), "suma 3 N","resta 2N","","",""},
-                    {"EJEMPLO1","EJEMPLO2","EJEMPLO3","","",""}
+                    { prueba1.getText(),prueba2.getText(),prueba3.getText(),prueba4.getText(),prueba5.getText(),prueba6.getText() }                    
             };
             registro = new JTable(filas, columnas);
-            JScrollPane sp=new JScrollPane(registro);
+            JScrollPane sp = new JScrollPane(registro);
             sp.setVisible(true);
-            sp.setBounds(0, 10, 695, 415);           
+            sp.setBounds(0, 10, 695, 415);
             base.removeAll();
             base.add(sp);
             base.revalidate();
